@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jongbeom Lee — Sogang University</title>
+<meta name="description" content="Jongbeom Lee is an integrated M.S./Ph.D. student in Electronic Engineering at Sogang University (VIDS Lab) working on efficient AI: sparse attention and fast inference for multimodal and generative models.">
+<meta name="author" content="Jongbeom Lee">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jongbeom Lee — Sogang University">
+<meta property="og:description" content="Efficient AI for multimodal and generative models: sparse attention, fast inference.">
+<meta property="og:image" content="https://jigsaw0612.github.io/assets/profile.jpg">
+<meta property="og:url" content="https://jigsaw0612.github.io/">
+<link rel="canonical" href="https://jigsaw0612.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4FD1'/%3E%3Cpath d='M18 16v26a6 6 0 0 1-6 6M30 16v32h20' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  // Apply the saved light/dark choice before first paint.
+  try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #FBFBF9;
+    --ink: #18191C;
+    --muted: #565A63;
+    --faint: #868A93;
+    --rule: #E3E3DE;
+    --wash: #F1F1ED;
+    --accent: #1F4FD1;
+    --accent-ink: #FFFFFF;
+    --accent-soft: rgba(31, 79, 209, .08);
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #121316;
+      --ink: #EBECEF;
+      --muted: #A3A6AE;
+      --faint: #7A7E87;
+      --rule: #2A2C32;
+      --wash: #1B1D22;
+      --accent: #8EADFF;
+      --accent-ink: #0E1630;
+      --accent-soft: rgba(142, 173, 255, .12);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #121316;
+    --ink: #EBECEF;
+    --muted: #A3A6AE;
+    --faint: #7A7E87;
+    --rule: #2A2C32;
+    --wash: #1B1D22;
+    --accent: #8EADFF;
+    --accent-ink: #0E1630;
+    --accent-soft: rgba(142, 173, 255, .12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 16.5px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .bar.scrolled { border-bottom-color: var(--rule); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font: 400 22px/1 var(--serif); text-decoration: none; letter-spacing: .005em; }
+  .nav { display: flex; align-items: center; gap: 26px; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 14.5px; transition: color .15s; }
+  .nav a:hover { color: var(--ink); }
+  .theme-btn {
+    width: 36px; height: 36px; border-radius: 10px;
+    border: 1px solid var(--rule); background: transparent; color: var(--ink);
+    display: grid; place-items: center; cursor: pointer; padding: 0;
+  }
+  .theme-btn:hover { background: var(--wash); }
+  .theme-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .theme-btn .sun { display: none; }
+  :root[data-theme="dark"] .theme-btn .sun { display: block; }
+  :root[data-theme="dark"] .theme-btn .moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-btn .sun { display: block; }
+    :root:not([data-theme="light"]) .theme-btn .moon { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1fr) 272px;
+    gap: 72px; align-items: center;
+    padding: 88px 0 72px;
+  }
+  .hero h1 { font: 400 clamp(52px, 8.4vw, 88px)/1 var(--serif); letter-spacing: -.01em; margin: 0 0 30px; }
+  .hero p { margin: 0 0 16px; max-width: 620px; color: var(--muted); font-size: 17.5px; line-height: 1.7; }
+  .hero .eyebrow { font: 500 12.5px/1.5 var(--mono); color: var(--accent); letter-spacing: .02em; margin: 0 0 14px; }
+  .hero p strong { color: var(--ink); font-weight: 500; }
+  .hero p a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 30px; padding: 0; list-style: none; }
+  .chips li { font-size: 13.5px; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 13px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 42px; padding: 0 17px; border-radius: 10px;
+    border: 1px solid var(--rule); color: var(--ink); text-decoration: none;
+    font-size: 14.5px; font-weight: 500; transition: background .15s, border-color .15s;
+  }
+  .btn:hover { background: var(--wash); }
+  .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .btn.primary:hover { opacity: .88; background: var(--ink); }
+  .btn svg { width: 16px; height: 16px; flex: none; }
+  .btn svg.line { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .btn svg.solid { fill: currentColor; }
+  .portrait { margin: 0; }
+  .portrait img {
+    width: 100%; aspect-ratio: 5 / 7; object-fit: cover; object-position: 50% 30%;
+    border-radius: 16px; border: 1px solid var(--rule); background: var(--wash);
+  }
+  .portrait figcaption { margin-top: 12px; font: 400 12px/1.4 var(--mono); color: var(--faint); }
+  .portrait figcaption::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
+
+  /* ---------- sections ---------- */
+  .sec { padding: 56px 0 8px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+  .sec-head h2 { font: 400 32px/1.1 var(--serif); margin: 0; }
+  .sec-head p { margin: 10px 0 0; color: var(--faint); font-size: 13px; line-height: 1.5; }
+  .sec-body { padding-bottom: 48px; }
+
+  /* news */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 20px; padding: 10px 0; }
+  .news time { font: 500 13px/1.75 var(--mono); color: var(--faint); }
+  .news span { color: var(--muted); }
+  .news b { color: var(--ink); font-weight: 600; }
+
+  /* publications */
+  .pub-group { font: 500 12px/1.4 var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 18px; }
+  .pub { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; padding: 4px 0 28px; }
+  .pub-thumb { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--rule); background: #fff; align-self: start; }
+  .pub-thumb img { width: 100%; aspect-ratio: 960 / 593; object-fit: cover; transition: transform .3s; }
+  .pub-thumb:hover img { transform: scale(1.03); }
+  .venue {
+    display: inline-block; font: 500 12px/1 var(--mono); color: var(--accent);
+    background: var(--accent-soft); border-radius: 6px; padding: 5px 8px; margin-bottom: 10px;
+  }
+  .pub h3 { font-size: 18px; line-height: 1.4; font-weight: 600; margin: 0 0 8px; }
+  .pub h3 a { text-decoration: none; }
+  .pub h3 a:hover { color: var(--accent); }
+  .authors { margin: 0 0 8px; color: var(--muted); font-size: 15px; }
+  .authors .me { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .authors a { text-decoration: none; }
+  .authors a:hover { color: var(--ink); text-decoration: underline; }
+  .tldr { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+  .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
+  .plinks a {
+    font-size: 13px; font-weight: 500; text-decoration: none; color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 8px; padding: 5px 11px;
+  }
+  .plinks a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* education */
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .tl li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 6px 0 22px; }
+  .tl time { font: 500 13px/1.8 var(--mono); color: var(--faint); }
+  .tl h3 { font-size: 16.5px; font-weight: 600; margin: 0 0 2px; }
+  .tl p { margin: 0; color: var(--muted); font-size: 15px; }
+  .tl p a { text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .tl p a:hover { border-bottom-color: var(--accent); }
+
+  footer { border-top: 1px solid var(--rule); margin-top: 24px; padding: 28px 0 48px; color: var(--faint); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 56px; }
+    .portrait { order: -1; width: 168px; }
+    .portrait figcaption { display: none; }
+    .sec { grid-template-columns: 1fr; gap: 20px; padding-top: 44px; }
+    .pub { grid-template-columns: 1fr; gap: 16px; }
+    .pub-thumb { max-width: 480px; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .nav { gap: 16px; }
+    .nav .hide-sm { display: none; }
+    .hero p { font-size: 16.5px; }
+    .hero .eyebrow { font-size: 12px; }
+    .news li { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
+    .tl li { grid-template-columns: 1fr; gap: 2px; padding-bottom: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .pub-thumb img { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Jongbeom Lee</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#news" class="hide-sm">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <button type="button" class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <section class="hero" aria-label="About">
+    <div>
+      <p class="eyebrow">Integrated M.S./Ph.D. Student · VIDS Lab, Sogang University</p>
+      <h1>Jongbeom Lee</h1>
+      <p>
+        I am an integrated M.S./Ph.D. student in Electronic Engineering at
+        <strong>Sogang University</strong>, advised by
+        <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Prof. Suk-Ju Kang</a>
+        in the <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a>.
+        I received my B.S. in Computer Engineering from Hansung University.
+      </p>
+      <p>
+        My research is on efficient AI: making large multimodal and generative models
+        fast enough to use in practice. My recent work, <strong>SparSTAR</strong>, is a
+        training-free sparse attention method for autoregressive video generation.
+        I am also interested in multimodal models and embodied AI.
+      </p>
+      <ul class="chips" aria-label="Research interests">
+        <li>Efficient AI</li>
+        <li>Sparse Attention</li>
+        <li>Multimodal Models</li>
+        <li>Embodied AI</li>
+      </ul>
+      <div class="links">
+        <a class="btn primary" href="mailto:bm838366@gmail.com">
+          <svg class="line" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+          bm838366@gmail.com
+        </a>
+        <a class="btn" href="https://github.com/JIGSAW0612" target="_blank" rel="noopener">
+          <svg class="solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://vds.sogang.ac.kr/?p=4815" target="_blank" rel="noopener">
+          <svg class="line" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 5l9 5.5-9 5.5-9-5.5Z"/><path d="M7 13v4c1.5 1.3 3.2 2 5 2s3.5-.7 5-2v-4"/></svg>
+          Lab Profile
+        </a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="assets/profile.jpg" width="640" height="896" alt="Portrait of Jongbeom Lee">
+      <figcaption>Seoul, South Korea</figcaption>
+    </figure>
+  </section>
+
+  <section class="sec" id="news" aria-labelledby="news-h">
+    <div class="sec-head"><h2 id="news-h">News</h2></div>
+    <div class="sec-body">
+      <ol class="news">
+        <li><time datetime="2026-08">Aug 2026</time><span><b>SparSTAR</b> is out on arXiv, with its project page and code.</span></li>
+        <li><time datetime="2026-03">Mar 2026</time><span>Started the integrated M.S./Ph.D. program at <b>Sogang University</b>.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="publications" aria-labelledby="pub-h">
+    <div class="sec-head">
+      <h2 id="pub-h">Publications</h2>
+      <p>* Equal contribution<br>† Corresponding author</p>
+    </div>
+    <div class="sec-body">
+      <h3 class="pub-group">Preprints</h3>
+      <article class="pub">
+        <a class="pub-thumb" href="https://jigsaw0612.github.io/SparSTAR_project_page/" aria-label="SparSTAR project page">
+          <img src="assets/sparstar.jpg" width="960" height="593" alt="SparSTAR overview: attention masks reused across clips versus SparSTAR's per-clip dynamic mask" loading="lazy">
+        </a>
+        <div>
+          <span class="venue">arXiv 2026</span>
+          <h3><a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">SparSTAR: Sparse Attention for SpaceTime AutoRegressive Video Synthesis</a></h3>
+          <p class="authors">
+            <span class="me">Jongbeom Lee</span>*,
+            <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>*,
+            <a href="https://nobody-96.github.io/" target="_blank" rel="noopener">Jincheol Yang</a>,
+            Jaemin Choi,
+            <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>†
+          </p>
+          <p class="tldr">A training-free block-sparse attention method for video visual autoregressive generation. At each expensive scale, it builds a fresh per-head mask instead of reusing one from an earlier scale or clip, with low selector overhead.</p>
+          <div class="plinks">
+            <a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://jigsaw0612.github.io/SparSTAR_project_page/">Project Page</a>
+            <a href="https://github.com/JIGSAW0612/SparSTAR" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="education" aria-labelledby="edu-h">
+    <div class="sec-head"><h2 id="edu-h">Education</h2></div>
+    <div class="sec-body">
+      <ol class="tl">
+        <li>
+          <time>2026.03 — Present</time>
+          <div>
+            <h3>Sogang University</h3>
+            <p>Integrated M.S./Ph.D. in Electronic Engineering · <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a><br>Advisor: Prof. Suk-Ju Kang</p>
+          </div>
+        </li>
+        <li>
+          <time>2020.03 — 2026.02</time>
+          <div>
+            <h3>Hansung University</h3>
+            <p>B.S. in Computer Engineering</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jongbeom Lee</span>
+    <span>Last updated Oct 2026 · <a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeBtn");
+    function isDark() {
+      if (root.dataset.theme) return root.dataset.theme === "dark";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    btn.addEventListener("click", function () {
+      var next = isDark() ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+    var bar = document.getElementById("bar");
+    function onScroll() { bar.classList.toggle("scrolled", window.scrollY > 8); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+</body>
+</html>
