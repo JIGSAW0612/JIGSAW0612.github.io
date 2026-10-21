@@ -31,7 +31,7 @@
     --ink: #17181B;
     --text: #2E3138;
     --muted: #61656E;
-    --faint: #8B8F98;
+    --faint: #70747C;
     --rule: #E6E6E2;
     --wash: #F2F2EF;
     --accent: #2453C7;
@@ -85,7 +85,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3 { color: var(--ink); text-wrap: balance; }
+  h1, h2, h3, h4 { color: var(--ink); text-wrap: balance; }
   p, li { text-wrap: pretty; }
   a { color: inherit; }
   img { display: block; max-width: 100%; height: auto; }
@@ -172,17 +172,20 @@
   .pub-thumb { display: block; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--rule); align-self: start; }
   .pub-thumb img { width: 100%; aspect-ratio: 960 / 593; object-fit: cover; transition: transform .3s; }
   .pub-thumb:hover img { transform: scale(1.03); }
+  :root[data-theme="dark"] .pub-thumb img { filter: brightness(.88); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .pub-thumb img { filter: brightness(.88); }
+  }
   .venue { margin: 0 0 4px; color: var(--accent); font-size: var(--fs-sm); font-weight: 600; }
-  .pub h3 { font-size: var(--fs-h3); line-height: 1.45; font-weight: 600; letter-spacing: -.01em; margin: 0 0 6px; }
-  .pub h3 a { text-decoration: none; }
-  .pub h3 a:hover { color: var(--accent); }
+  .pub h4 { font-size: var(--fs-h3); line-height: 1.45; font-weight: 600; letter-spacing: -.01em; margin: 0 0 6px; }
+  .pub h4 a { text-decoration: none; }
+  .pub h4 a:hover { color: var(--accent); }
   .authors { margin: 0 0 8px; color: var(--muted); }
   .authors a, .authors span { white-space: nowrap; }
   .authors .me { color: var(--ink); font-weight: 600; }
   .authors a { text-decoration: none; }
   .authors a:hover { color: var(--accent); }
   .tldr { margin: 0 0 12px; color: var(--muted); }
-  .venue-full { margin: -4px 0 8px; color: var(--faint); font-size: var(--fs-sm); font-style: italic; }
   .pub + .group { margin-top: clamp(32px, 24px + 1.6vw, 44px); }
   .pub.text-only { grid-template-columns: minmax(0, 1fr); max-width: 52em; }
   .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -247,15 +250,16 @@
       <p class="role">Integrated M.S./Ph.D. Student in Electronic Engineering<br>Sogang University, Seoul, South Korea</p>
       <div class="bio">
         <p>
-          I am an integrated M.S./Ph.D. student at Sogang University, advised by
+          I am advised by
           <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Prof. Suk-Ju Kang</a>
-          in the <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a>.
-          I received my B.S. in Computer Engineering from Hansung University.
+          in the <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a>,
+          and I received my B.S. in Computer Engineering from Hansung University.
         </p>
         <p>
           My research is on efficient AI: making large multimodal and generative models
-          fast enough to use in practice. My recent work, <strong>SparSTAR</strong>, is a
-          training-free sparse attention method for autoregressive video generation.
+          fast enough to use in practice. Recently I have worked on sparse attention for
+          video generation: <strong>SparSTAR</strong> for autoregressive video models and
+          <strong>Unified Tail Aggregation</strong> for video diffusion transformers.
           I am also interested in multimodal models and embodied AI.
         </p>
       </div>
@@ -308,7 +312,7 @@
       </a>
       <div>
         <p class="venue">arXiv 2026</p>
-        <h3><a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">SparSTAR: Sparse Attention for SpaceTime AutoRegressive Video Synthesis</a></h3>
+        <h4><a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">SparSTAR: Sparse Attention for SpaceTime AutoRegressive Video Synthesis</a></h4>
         <p class="authors">
           <span class="me">Jongbeom Lee</span>*,
           <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>*,
@@ -328,8 +332,8 @@
     <h3 class="group">Workshop Papers</h3>
     <article class="pub text-only">
       <div>
-        <p class="venue">ICML 2026 Workshop · AdaptFM</p>
-        <h3><a href="https://openreview.net/forum?id=mEpi4pgzpI" target="_blank" rel="noopener">Reducing Attention Distribution Error with Unified Tail Aggregation for Sparse Attention</a></h3>
+        <p class="venue">ICML 2026 Workshop on Resource-Adaptive Foundation Model Inference (AdaptFM)</p>
+        <h4><a href="https://openreview.net/forum?id=mEpi4pgzpI" target="_blank" rel="noopener">Reducing Attention Distribution Error with Unified Tail Aggregation for Sparse Attention</a></h4>
         <p class="authors">
           <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>*,
           <span class="me">Jongbeom Lee</span>*,
@@ -339,7 +343,6 @@
           <a href="https://www.pnu-cvsp.com/prof" target="_blank" rel="noopener">Kyeongbo Kong</a>,
           <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>†
         </p>
-        <p class="venue-full">ICML 2026 Workshop on Resource-Adaptive Foundation Model Inference</p>
         <p class="tldr">Shows that the Top-K oracle used to evaluate sparse attention in video diffusion transformers cuts off the tail of the attention distribution, and proposes a low-delta oracle policy with Unified Tail Aggregation, which adds one aggregated logit to restore it. Up to 97.4% lower MSE than the Top-K oracle at 50% sparsity.</p>
         <div class="plinks">
           <a href="https://openreview.net/forum?id=mEpi4pgzpI" target="_blank" rel="noopener">OpenReview</a>
