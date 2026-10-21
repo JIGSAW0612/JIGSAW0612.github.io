@@ -177,11 +177,14 @@
   .pub h3 a { text-decoration: none; }
   .pub h3 a:hover { color: var(--accent); }
   .authors { margin: 0 0 8px; color: var(--muted); }
-  .authors a, .authors .me { white-space: nowrap; }
+  .authors a, .authors span { white-space: nowrap; }
   .authors .me { color: var(--ink); font-weight: 600; }
   .authors a { text-decoration: none; }
   .authors a:hover { color: var(--accent); }
   .tldr { margin: 0 0 12px; color: var(--muted); }
+  .venue-full { margin: -4px 0 8px; color: var(--faint); font-size: var(--fs-sm); font-style: italic; }
+  .pub + .group { margin-top: clamp(32px, 24px + 1.6vw, 44px); }
+  .pub.text-only { grid-template-columns: minmax(0, 1fr); max-width: 52em; }
   .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
   .plinks a {
     font-size: var(--fs-xs); font-weight: 500; text-decoration: none; color: var(--text);
@@ -318,6 +321,29 @@
           <a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">arXiv</a>
           <a href="https://jigsaw0612.github.io/SparSTAR_project_page/">Project Page</a>
           <a href="https://github.com/JIGSAW0612/SparSTAR" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <h3 class="group">Workshop Papers</h3>
+    <article class="pub text-only">
+      <div>
+        <p class="venue">ICML 2026 Workshop · AdaptFM</p>
+        <h3><a href="https://openreview.net/forum?id=mEpi4pgzpI" target="_blank" rel="noopener">Reducing Attention Distribution Error with Unified Tail Aggregation for Sparse Attention</a></h3>
+        <p class="authors">
+          <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>,
+          <span class="me">Jongbeom Lee</span>,
+          <a href="https://imin-jaemin.github.io/" target="_blank" rel="noopener">Jaemin Choi</a>,
+          <a href="https://nobody-96.github.io/" target="_blank" rel="noopener">Jincheol Yang</a>,
+          <span>Yubin Cho</span>, <span>Joonsik Nam</span>, <span>Seunghun Moon</span>, <span>Jung-Woo Chang</span>, <span>Bongjoon Hyun</span>, <span>Kyomin Sohn</span>,
+          <a href="https://www.pnu-cvsp.com/prof" target="_blank" rel="noopener">Kyeongbo Kong</a>,
+          <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>†
+        </p>
+        <p class="venue-full">ICML 2026 Workshop on Resource-Adaptive Foundation Model Inference</p>
+        <p class="tldr">Shows that the Top-K oracle used to evaluate sparse attention in video diffusion transformers cuts off the tail of the attention distribution, and proposes a low-delta oracle policy with Unified Tail Aggregation, which adds one aggregated logit to restore it. Up to 97.4% lower MSE than the Top-K oracle at 50% sparsity.</p>
+        <div class="plinks">
+          <a href="https://openreview.net/forum?id=mEpi4pgzpI" target="_blank" rel="noopener">OpenReview</a>
+          <a href="https://icml.cc/virtual/2026/75173" target="_blank" rel="noopener">ICML Page</a>
         </div>
       </div>
     </article>
