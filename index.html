@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
 <script>
   // Apply the saved light/dark choice before first paint.
@@ -27,94 +27,91 @@
 <style>
   :root {
     color-scheme: light;
-    --paper: #FBFBF9;
-    --ink: #18191C;
-    --muted: #565A63;
-    --faint: #868A93;
-    --rule: #E3E3DE;
-    --wash: #F1F1ED;
-    --accent: #1F4FD1;
-    --accent-soft: rgba(31, 79, 209, .08);
-    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --paper: #FCFCFB;
+    --ink: #17181B;
+    --text: #2E3138;
+    --muted: #61656E;
+    --faint: #8B8F98;
+    --rule: #E6E6E2;
+    --wash: #F2F2EF;
+    --accent: #2453C7;
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
     --sans: "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-    /* Fluid type scale: each size grows smoothly from a 360px phone to a 1280px desktop. */
-    --fs-xs:   clamp(11.5px, 11px + 0.12vw, 12.5px);
-    --fs-sm:   clamp(13px, 12.4px + 0.16vw, 14.5px);
-    --fs-base: clamp(15px, 14.2px + 0.22vw, 16.5px);
-    --fs-lead: clamp(16px, 14.9px + 0.32vw, 18.5px);
-    --fs-h3:   clamp(16.5px, 15.4px + 0.3vw, 19px);
-    --fs-h2:   clamp(27px, 21.5px + 1.5vw, 40px);
-    --fs-h1:   clamp(46px, 27px + 5.4vw, 96px);
+    /* Fluid type scale: sizes grow smoothly from a 360px phone to a 1280px desktop. */
+    --fs-xs:   clamp(12px, 11.6px + .1vw, 12.5px);
+    --fs-sm:   clamp(13.5px, 13px + .15vw, 14.5px);
+    --fs-base: clamp(15px, 14.4px + .18vw, 16px);
+    --fs-lead: clamp(16px, 15.2px + .24vw, 17.5px);
+    --fs-h3:   clamp(16.5px, 15.8px + .2vw, 18px);
+    --fs-h2:   clamp(24px, 20px + 1vw, 30px);
+    --fs-h1:   clamp(38px, 26px + 3.4vw, 60px);
 
-    --gutter:  clamp(16px, 9px + 2vw, 28px);
-    --sec-pad: clamp(40px, 26px + 3.6vw, 64px);
+    --gutter:  clamp(18px, 10px + 2vw, 32px);
+    --sec-gap: clamp(40px, 28px + 2.4vw, 56px);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --paper: #121316;
-      --ink: #EBECEF;
-      --muted: #A3A6AE;
-      --faint: #7A7E87;
-      --rule: #2A2C32;
-      --wash: #1B1D22;
-      --accent: #8EADFF;
-      --accent-soft: rgba(142, 173, 255, .12);
+      --paper: #111214;
+      --ink: #EDEEF0;
+      --text: #D3D5DA;
+      --muted: #9EA2AA;
+      --faint: #7A7E86;
+      --rule: #26282D;
+      --wash: #1A1C20;
+      --accent: #8FB0FF;
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --paper: #121316;
-    --ink: #EBECEF;
-    --muted: #A3A6AE;
-    --faint: #7A7E87;
-    --rule: #2A2C32;
-    --wash: #1B1D22;
-    --accent: #8EADFF;
-    --accent-soft: rgba(142, 173, 255, .12);
+    --paper: #111214;
+    --ink: #EDEEF0;
+    --text: #D3D5DA;
+    --muted: #9EA2AA;
+    --faint: #7A7E86;
+    --rule: #26282D;
+    --wash: #1A1C20;
+    --accent: #8FB0FF;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--paper);
-    color: var(--ink);
-    font: 400 var(--fs-base)/1.65 var(--sans);
-    letter-spacing: -.005em;
+    color: var(--text);
+    font: 400 var(--fs-base)/1.7 var(--sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3 { text-wrap: balance; }
+  h1, h2, h3 { color: var(--ink); text-wrap: balance; }
   p, li { text-wrap: pretty; }
   a { color: inherit; }
   img { display: block; max-width: 100%; height: auto; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter); }
 
   /* ---------- top bar ---------- */
   .bar {
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    background: color-mix(in srgb, var(--paper) 90%, transparent);
     backdrop-filter: saturate(140%) blur(10px);
     -webkit-backdrop-filter: saturate(140%) blur(10px);
     border-bottom: 1px solid transparent;
     transition: border-color .2s;
   }
   .bar.scrolled { border-bottom-color: var(--rule); }
-  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: clamp(56px, 50px + 1.2vw, 64px); }
-  .brand { font: 450 clamp(19px, 17px + 0.5vw, 22px)/1 var(--serif); text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
-  .nav { display: flex; align-items: center; gap: clamp(14px, 6px + 1.8vw, 28px); }
-  .nav a { color: var(--muted); text-decoration: none; font-size: var(--fs-sm); font-weight: 500; transition: color .15s; }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+  .brand { font: 500 19px/1 var(--serif); color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav { display: flex; align-items: center; gap: clamp(16px, 8px + 1.6vw, 28px); }
+  .nav a { color: var(--muted); text-decoration: none; font-size: var(--fs-sm); transition: color .15s; }
   .nav a:hover { color: var(--ink); }
   .theme-btn {
-    width: 36px; height: 36px; border-radius: 10px; flex: none;
-    border: 1px solid var(--rule); background: transparent; color: var(--ink);
+    width: 34px; height: 34px; border-radius: 8px; flex: none; margin-left: -6px;
+    border: 0; background: transparent; color: var(--muted);
     display: grid; place-items: center; cursor: pointer; padding: 0;
   }
-  .theme-btn:hover { background: var(--wash); }
+  .theme-btn:hover { background: var(--wash); color: var(--ink); }
   .theme-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .theme-btn .sun { display: none; }
   :root[data-theme="dark"] .theme-btn .sun { display: block; }
@@ -126,119 +123,95 @@
 
   /* ---------- hero ---------- */
   .hero {
-    display: grid; grid-template-columns: minmax(0, 1fr) clamp(220px, 140px + 12vw, 280px);
-    gap: clamp(40px, 10px + 5vw, 80px); align-items: center;
-    padding: clamp(44px, 20px + 6vw, 96px) 0 clamp(48px, 30px + 4vw, 80px);
+    display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 150px + 7vw, 236px);
+    gap: clamp(36px, 12px + 4.5vw, 72px); align-items: start;
+    padding: clamp(44px, 24px + 5vw, 88px) 0 clamp(44px, 30px + 3vw, 64px);
   }
-  .hero .eyebrow { font: 500 var(--fs-xs)/1.5 var(--mono); color: var(--accent); letter-spacing: .02em; margin: 0 0 clamp(10px, 8px + .4vw, 16px); max-width: none; }
-  .hero h1 {
-    font: 400 var(--fs-h1)/1 var(--serif);
-    font-optical-sizing: auto;
-    letter-spacing: -.025em;
-    margin: 0 0 clamp(20px, 14px + 1.4vw, 32px);
-  }
-  .hero p { margin: 0 0 1em; max-width: 36em; color: var(--muted); font-size: var(--fs-lead); line-height: 1.7; }
-  .hero p strong { color: var(--ink); font-weight: 600; }
-  .hero p a { color: var(--ink); font-weight: 500; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: clamp(20px, 16px + 1vw, 28px) 0 clamp(22px, 18px + 1vw, 30px); padding: 0; list-style: none; }
-  .chips li { font-size: var(--fs-sm); color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: .28em .95em; }
-  .links { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    height: clamp(40px, 37px + .6vw, 44px); padding: 0 clamp(14px, 12px + .5vw, 18px); border-radius: 10px;
-    border: 1px solid var(--rule); color: var(--ink); text-decoration: none;
-    font-size: var(--fs-sm); font-weight: 600; transition: background .15s, border-color .15s;
-  }
-  .btn:hover { background: var(--wash); }
-  .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-  .btn.primary:hover { opacity: .88; background: var(--ink); }
-  .btn svg { width: 16px; height: 16px; flex: none; }
-  .btn svg.line { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .btn svg.solid { fill: currentColor; }
-  .portrait { margin: 0; }
+  .hero h1 { font: 400 var(--fs-h1)/1.05 var(--serif); letter-spacing: -.012em; margin: 0; }
+  .role { margin: 14px 0 0; color: var(--muted); font-size: var(--fs-base); line-height: 1.6; }
+  .bio { margin-top: clamp(22px, 18px + 1vw, 30px); }
+  .bio p { margin: 0 0 .9em; max-width: 40em; font-size: var(--fs-lead); line-height: 1.75; }
+  .bio a { color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .bio a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .bio strong { color: var(--ink); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .chips li { font-size: var(--fs-xs); color: var(--muted); background: var(--wash); border-radius: 999px; padding: 5px 12px; line-height: 1.4; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .links a { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); text-decoration: none; font-size: var(--fs-sm); font-weight: 500; }
+  .links a:hover span { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .links svg { width: 16px; height: 16px; flex: none; color: var(--accent); }
+  .links svg.line { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .links svg.solid { fill: currentColor; }
+  .portrait { margin: 6px 0 0; }
   .portrait img {
-    width: 100%; aspect-ratio: 5 / 7; object-fit: cover; object-position: 50% 30%;
-    border-radius: 16px; border: 1px solid var(--rule); background: var(--wash);
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%;
+    border-radius: 12px; background: var(--wash);
+    box-shadow: 0 0 0 1px var(--rule);
   }
-  .portrait figcaption { margin-top: 12px; font: 400 var(--fs-xs)/1.4 var(--mono); color: var(--faint); }
-  .portrait figcaption::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
 
   /* ---------- sections ---------- */
-  .sec {
-    padding: var(--sec-pad) 0 8px; border-top: 1px solid var(--rule);
-    display: grid; grid-template-columns: clamp(160px, 100px + 9vw, 220px) minmax(0, 1fr); gap: clamp(24px, 10px + 3vw, 48px);
-  }
-  .sec-head h2 { font: 400 var(--fs-h2)/1.1 var(--serif); letter-spacing: -.02em; margin: 0; }
-  .sec-head p { margin: 10px 0 0; color: var(--faint); font-size: var(--fs-xs); line-height: 1.6; }
-  .sec-body { padding-bottom: calc(var(--sec-pad) - 8px); }
+  .sec { border-top: 1px solid var(--rule); padding: var(--sec-gap) 0 0; margin-bottom: var(--sec-gap); }
+  .sec-title { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 clamp(20px, 16px + 1vw, 28px); }
+  .sec h2 { font: 500 var(--fs-h2)/1.15 var(--serif); letter-spacing: -.01em; margin: 0; }
+  .note { margin: 0; color: var(--faint); font-size: var(--fs-xs); }
 
-  /* news */
-  .news { list-style: none; margin: 0; padding: 0; }
-  .news li { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 20px; padding: 10px 0; }
-  .news time { font: 500 var(--fs-xs)/2 var(--mono); color: var(--faint); }
-  .news span { color: var(--muted); }
-  .news b { color: var(--ink); font-weight: 600; }
+  /* shared date | content rows (news, education) */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 24px; padding: 8px 0; }
+  .rows time { color: var(--faint); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; line-height: 1.85; white-space: nowrap; }
+  .rows b { color: var(--ink); font-weight: 600; }
+  .rows h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; margin: 0; line-height: 1.5; }
+  .rows p { margin: 2px 0 0; color: var(--muted); }
+  .rows p a { color: var(--accent); text-decoration: none; }
+  .rows p a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .edu li + li { margin-top: 10px; }
 
   /* publications */
-  .pub-group { font: 500 var(--fs-xs)/1.4 var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 18px; }
-  .pub { display: grid; grid-template-columns: clamp(200px, 120px + 11vw, 250px) minmax(0, 1fr); gap: clamp(20px, 10px + 2vw, 30px); padding: 4px 0 28px; }
-  .pub-thumb { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--rule); background: #fff; align-self: start; }
+  .group { font-size: var(--fs-xs); font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 16px; }
+  .pub { display: grid; grid-template-columns: clamp(180px, 120px + 9vw, 228px) minmax(0, 1fr); gap: clamp(20px, 12px + 1.6vw, 32px); }
+  .pub-thumb { display: block; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--rule); align-self: start; }
   .pub-thumb img { width: 100%; aspect-ratio: 960 / 593; object-fit: cover; transition: transform .3s; }
   .pub-thumb:hover img { transform: scale(1.03); }
-  .venue {
-    display: inline-block; font: 500 var(--fs-xs)/1 var(--mono); color: var(--accent);
-    background: var(--accent-soft); border-radius: 6px; padding: 5px 8px; margin-bottom: 10px;
-  }
-  .pub h3 { font-size: var(--fs-h3); line-height: 1.4; font-weight: 650; letter-spacing: -.012em; margin: 0 0 8px; }
+  .venue { margin: 0 0 4px; color: var(--accent); font-size: var(--fs-sm); font-weight: 600; }
+  .pub h3 { font-size: var(--fs-h3); line-height: 1.45; font-weight: 600; letter-spacing: -.01em; margin: 0 0 6px; }
   .pub h3 a { text-decoration: none; }
   .pub h3 a:hover { color: var(--accent); }
-  .authors { margin: 0 0 8px; color: var(--muted); font-size: var(--fs-base); }
-  .authors .me { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .authors { margin: 0 0 8px; color: var(--muted); }
   .authors a, .authors .me { white-space: nowrap; }
+  .authors .me { color: var(--ink); font-weight: 600; }
   .authors a { text-decoration: none; }
-  .authors a:hover { color: var(--ink); text-decoration: underline; }
-  .tldr { margin: 0 0 14px; color: var(--muted); font-size: var(--fs-base); }
+  .authors a:hover { color: var(--accent); }
+  .tldr { margin: 0 0 12px; color: var(--muted); }
   .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
   .plinks a {
-    font-size: var(--fs-sm); font-weight: 600; text-decoration: none; color: var(--ink);
-    border: 1px solid var(--rule); border-radius: 8px; padding: .32em .8em;
+    font-size: var(--fs-xs); font-weight: 500; text-decoration: none; color: var(--text);
+    border: 1px solid var(--rule); border-radius: 999px; padding: 3px 12px;
+    transition: border-color .15s, color .15s;
   }
   .plinks a:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* education */
-  .tl { list-style: none; margin: 0; padding: 0; }
-  .tl li { display: grid; grid-template-columns: 11.5em minmax(0, 1fr); gap: 20px; padding: 6px 0 22px; }
-  .tl time { font: 500 var(--fs-xs)/2.1 var(--mono); color: var(--faint); }
-  .tl h3 { font-size: var(--fs-h3); font-weight: 650; letter-spacing: -.012em; margin: 0 0 2px; }
-  .tl p { margin: 0; color: var(--muted); font-size: var(--fs-base); }
-  .tl p a { text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .tl p a:hover { border-bottom-color: var(--accent); }
-
-  footer { border-top: 1px solid var(--rule); margin-top: 24px; padding: 28px 0 48px; color: var(--faint); font-size: var(--fs-sm); }
+  footer { border-top: 1px solid var(--rule); padding: 26px 0 44px; color: var(--faint); font-size: var(--fs-xs); }
   footer .wrap { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
   footer a { text-decoration: none; }
   footer a:hover { color: var(--ink); }
 
   /* ---------- layout breakpoints (type already scales fluidly) ---------- */
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; gap: 28px; }
-    .portrait { order: -1; width: clamp(132px, 90px + 14vw, 180px); }
-    .portrait figcaption { display: none; }
-    .sec { grid-template-columns: 1fr; gap: 18px; }
-    .pub { grid-template-columns: 1fr; gap: 16px; }
-    .pub-thumb { max-width: 480px; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 24px; }
+    .portrait { order: -1; width: clamp(112px, 80px + 10vw, 148px); margin: 0; }
+    .pub { grid-template-columns: 1fr; gap: 14px; }
+    .pub-thumb { max-width: 440px; }
   }
   @media (max-width: 560px) {
     .nav .hide-sm { display: none; }
-    .news li { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
-    .tl li { grid-template-columns: 1fr; gap: 2px; padding-bottom: 20px; }
+    .rows li { grid-template-columns: 1fr; gap: 0; padding: 7px 0; }
+    .edu li + li { margin-top: 14px; }
   }
-  @media (max-width: 380px) {
+  @media (max-width: 360px) {
     .bar .wrap { gap: 10px; padding: 0 14px; }
-    .brand { font-size: 17px; }
-    .nav { gap: 10px; }
-    .nav a { font-size: 12.5px; }
-    .theme-btn { width: 32px; height: 32px; }
+    .nav { gap: 12px; }
+    .nav a { font-size: 13px; }
+    .brand { font-size: 18px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -267,118 +240,107 @@
 
   <section class="hero" aria-label="About">
     <div>
-      <p class="eyebrow">Integrated M.S./Ph.D. Student · VIDS Lab, Sogang University</p>
       <h1>Jongbeom Lee</h1>
-      <p>
-        I am an integrated M.S./Ph.D. student in Electronic Engineering at
-        <strong>Sogang University</strong>, advised by
-        <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Prof. Suk-Ju Kang</a>
-        in the <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a>.
-        I received my B.S. in Computer Engineering from Hansung University.
-      </p>
-      <p>
-        My research is on efficient AI: making large multimodal and generative models
-        fast enough to use in practice. My recent work, <strong>SparSTAR</strong>, is a
-        training-free sparse attention method for autoregressive video generation.
-        I am also interested in multimodal models and embodied AI.
-      </p>
+      <p class="role">Integrated M.S./Ph.D. Student in Electronic Engineering<br>Sogang University, Seoul, South Korea</p>
+      <div class="bio">
+        <p>
+          I am an integrated M.S./Ph.D. student at Sogang University, advised by
+          <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Prof. Suk-Ju Kang</a>
+          in the <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a>.
+          I received my B.S. in Computer Engineering from Hansung University.
+        </p>
+        <p>
+          My research is on efficient AI: making large multimodal and generative models
+          fast enough to use in practice. My recent work, <strong>SparSTAR</strong>, is a
+          training-free sparse attention method for autoregressive video generation.
+          I am also interested in multimodal models and embodied AI.
+        </p>
+      </div>
       <ul class="chips" aria-label="Research interests">
         <li>Efficient AI</li>
         <li>Sparse Attention</li>
         <li>Multimodal Models</li>
         <li>Embodied AI</li>
       </ul>
-      <div class="links">
-        <a class="btn primary" href="mailto:bm838366@gmail.com">
+      <ul class="links" aria-label="Contact and profiles">
+        <li><a href="mailto:bm838366@gmail.com">
           <svg class="line" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
-          bm838366@gmail.com
-        </a>
-        <a class="btn" href="https://scholar.google.com/citations?user=2oFCpHwAAAAJ" target="_blank" rel="noopener">
+          <span>bm838366@gmail.com</span></a></li>
+        <li><a href="https://scholar.google.com/citations?user=2oFCpHwAAAAJ" target="_blank" rel="noopener">
           <svg class="line" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 5l9 5.5-9 5.5-9-5.5Z"/><path d="M7 13v4c1.5 1.3 3.2 2 5 2s3.5-.7 5-2v-4"/></svg>
-          Google Scholar
-        </a>
-        <a class="btn" href="https://github.com/JIGSAW0612" target="_blank" rel="noopener">
+          <span>Google Scholar</span></a></li>
+        <li><a href="https://github.com/JIGSAW0612" target="_blank" rel="noopener">
           <svg class="solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-          GitHub
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/jongbeom-lee-7ab23b365/" target="_blank" rel="noopener">
+          <span>GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/jongbeom-lee-7ab23b365/" target="_blank" rel="noopener">
           <svg class="solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn" href="https://vds.sogang.ac.kr/?p=4815" target="_blank" rel="noopener">
+          <span>LinkedIn</span></a></li>
+        <li><a href="https://vds.sogang.ac.kr/?p=4815" target="_blank" rel="noopener">
           <svg class="line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8h18l-9-5Z"/><path d="M5 10v8M9.7 10v8M14.3 10v8M19 10v8M3 21h18"/></svg>
-          Lab Profile
-        </a>
-      </div>
+          <span>Lab Profile</span></a></li>
+      </ul>
     </div>
     <figure class="portrait">
       <img src="assets/profile.jpg" width="640" height="896" alt="Portrait of Jongbeom Lee">
-      <figcaption>Seoul, South Korea</figcaption>
     </figure>
   </section>
 
   <section class="sec" id="news" aria-labelledby="news-h">
-    <div class="sec-head"><h2 id="news-h">News</h2></div>
-    <div class="sec-body">
-      <ol class="news">
-        <li><time datetime="2026-08">Aug 2026</time><span><b>SparSTAR</b> is out on arXiv, with its project page and code.</span></li>
-        <li><time datetime="2026-03">Mar 2026</time><span>Started the integrated M.S./Ph.D. program at <b>Sogang University</b>.</span></li>
-      </ol>
-    </div>
+    <div class="sec-title"><h2 id="news-h">News</h2></div>
+    <ol class="rows">
+      <li><time datetime="2026-08">Aug 2026</time><span><b>SparSTAR</b> is out on arXiv, with its project page and code.</span></li>
+      <li><time datetime="2026-03">Mar 2026</time><span>Started the integrated M.S./Ph.D. program at <b>Sogang University</b>.</span></li>
+    </ol>
   </section>
 
   <section class="sec" id="publications" aria-labelledby="pub-h">
-    <div class="sec-head">
+    <div class="sec-title">
       <h2 id="pub-h">Publications</h2>
-      <p>* Equal contribution<br>† Corresponding author</p>
+      <p class="note">* Equal contribution &nbsp;·&nbsp; † Corresponding author</p>
     </div>
-    <div class="sec-body">
-      <h3 class="pub-group">Preprints</h3>
-      <article class="pub">
-        <a class="pub-thumb" href="https://jigsaw0612.github.io/SparSTAR_project_page/" aria-label="SparSTAR project page">
-          <img src="assets/sparstar.jpg" width="960" height="593" alt="SparSTAR overview: attention masks reused across clips versus SparSTAR's per-clip dynamic mask" loading="lazy">
-        </a>
-        <div>
-          <span class="venue">arXiv 2026</span>
-          <h3><a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">SparSTAR: Sparse Attention for SpaceTime AutoRegressive Video Synthesis</a></h3>
-          <p class="authors">
-            <span class="me">Jongbeom Lee</span>*,
-            <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>*,
-            <a href="https://nobody-96.github.io/" target="_blank" rel="noopener">Jincheol Yang</a>,
-            <a href="https://imin-jaemin.github.io/" target="_blank" rel="noopener">Jaemin Choi</a>,
-            <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>†
-          </p>
-          <p class="tldr">A training-free block-sparse attention method for video visual autoregressive generation. At each expensive scale, it builds a fresh per-head mask instead of reusing one from an earlier scale or clip, with low selector overhead.</p>
-          <div class="plinks">
-            <a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">arXiv</a>
-            <a href="https://jigsaw0612.github.io/SparSTAR_project_page/">Project Page</a>
-            <a href="https://github.com/JIGSAW0612/SparSTAR" target="_blank" rel="noopener">Code</a>
-          </div>
+    <h3 class="group">Preprints</h3>
+    <article class="pub">
+      <a class="pub-thumb" href="https://jigsaw0612.github.io/SparSTAR_project_page/" aria-label="SparSTAR project page">
+        <img src="assets/sparstar.jpg" width="960" height="593" alt="SparSTAR overview: attention masks reused across clips versus SparSTAR's per-clip dynamic mask" loading="lazy">
+      </a>
+      <div>
+        <p class="venue">arXiv 2026</p>
+        <h3><a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">SparSTAR: Sparse Attention for SpaceTime AutoRegressive Video Synthesis</a></h3>
+        <p class="authors">
+          <span class="me">Jongbeom Lee</span>*,
+          <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>*,
+          <a href="https://nobody-96.github.io/" target="_blank" rel="noopener">Jincheol Yang</a>,
+          <a href="https://imin-jaemin.github.io/" target="_blank" rel="noopener">Jaemin Choi</a>,
+          <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>†
+        </p>
+        <p class="tldr">A training-free block-sparse attention method for video visual autoregressive generation. At each expensive scale, it builds a fresh per-head mask instead of reusing one from an earlier scale or clip, with low selector overhead.</p>
+        <div class="plinks">
+          <a href="https://arxiv.org/abs/2608.10519" target="_blank" rel="noopener">arXiv</a>
+          <a href="https://jigsaw0612.github.io/SparSTAR_project_page/">Project Page</a>
+          <a href="https://github.com/JIGSAW0612/SparSTAR" target="_blank" rel="noopener">Code</a>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   </section>
 
   <section class="sec" id="education" aria-labelledby="edu-h">
-    <div class="sec-head"><h2 id="edu-h">Education</h2></div>
-    <div class="sec-body">
-      <ol class="tl">
-        <li>
-          <time>2026.03 — Present</time>
-          <div>
-            <h3>Sogang University</h3>
-            <p>Integrated M.S./Ph.D. in Electronic Engineering · <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a><br>Advisor: Prof. Suk-Ju Kang</p>
-          </div>
-        </li>
-        <li>
-          <time>2020.03 — 2026.02</time>
-          <div>
-            <h3>Hansung University</h3>
-            <p>B.S. in Computer Engineering</p>
-          </div>
-        </li>
-      </ol>
-    </div>
+    <div class="sec-title"><h2 id="edu-h">Education</h2></div>
+    <ol class="rows edu">
+      <li>
+        <time>2026.03 – Present</time>
+        <div>
+          <h3>Sogang University</h3>
+          <p>Integrated M.S./Ph.D. in Electronic Engineering, <a href="https://vds.sogang.ac.kr/" target="_blank" rel="noopener">VIDS Lab</a><br>Advisor: Prof. Suk-Ju Kang</p>
+        </div>
+      </li>
+      <li>
+        <time>2020.03 – 2026.02</time>
+        <div>
+          <h3>Hansung University</h3>
+          <p>B.S. in Computer Engineering</p>
+        </div>
+      </li>
+    </ol>
   </section>
 
 </main>
@@ -386,7 +348,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Jongbeom Lee</span>
-    <span>Last updated Oct 2026 · <a href="#top">Back to top ↑</a></span>
+    <span>Last updated Oct 2026</span>
   </div>
 </footer>
 
