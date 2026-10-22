@@ -133,7 +133,7 @@
   .bio p { margin: 0 0 .9em; max-width: 40em; font-size: var(--fs-lead); line-height: 1.75; }
   .bio a { color: var(--accent); text-decoration: none; white-space: nowrap; }
   .bio a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .bio strong { color: var(--ink); font-weight: 600; }
+  .bio strong { color: var(--ink); font-weight: 600; white-space: nowrap; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
   .chips li { font-size: var(--fs-xs); color: var(--muted); background: var(--wash); border-radius: 999px; padding: 5px 12px; line-height: 1.4; }
   .links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 28px 0 0; padding: 0; list-style: none; }
@@ -256,11 +256,10 @@
           and I received my B.S. in Computer Engineering from Hansung University.
         </p>
         <p>
-          My research is on efficient AI: making large multimodal and generative models
-          fast enough to use in practice. Recently I have worked on sparse attention for
-          video generation: <strong>SparSTAR</strong> for autoregressive video models and
-          <strong>Unified Tail Aggregation</strong> for video diffusion transformers.
-          I am also interested in multimodal models.
+          My research focuses on efficient AI: making large models lighter and faster
+          at inference. I am particularly interested in <strong>token pruning</strong>,
+          <strong>sparse attention</strong>, and <strong>KV cache compression</strong>
+          for multimodal and generative models.
         </p>
       </div>
       <ul class="chips" aria-label="Research interests">
