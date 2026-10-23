@@ -187,6 +187,7 @@
   .authors a:hover { color: var(--accent); }
   .tldr { margin: 0 0 12px; color: var(--muted); }
   .pub + .group { margin-top: clamp(32px, 24px + 1.6vw, 44px); }
+  .pub + .pub { margin-top: clamp(28px, 20px + 1.6vw, 40px); }
   .pub.text-only { grid-template-columns: minmax(0, 1fr); max-width: 52em; }
   .plinks { display: flex; flex-wrap: wrap; gap: 8px; }
   .plinks a {
@@ -293,6 +294,7 @@
   <section class="sec" id="news" aria-labelledby="news-h">
     <div class="sec-title"><h2 id="news-h">News</h2></div>
     <ol class="rows">
+      <li><time datetime="2026-10">Oct 2026</time><span><b>OpenAttention</b> is out on arXiv, with its project page and code.</span></li>
       <li><time datetime="2026-08">Aug 2026</time><span><b>SparSTAR</b> is out on arXiv, with its project page and code.</span></li>
       <li><time datetime="2026-03">Mar 2026</time><span>Started the integrated M.S./Ph.D. program at <b>Sogang University</b>.</span></li>
     </ol>
@@ -304,6 +306,32 @@
       <p class="note">* Equal contribution &nbsp;·&nbsp; † Corresponding author</p>
     </div>
     <h3 class="group">Preprints</h3>
+    <article class="pub">
+      <a class="pub-thumb" href="https://hyunwoo137.github.io/OpenAttention/" target="_blank" rel="noopener" aria-label="OpenAttention project page">
+        <img src="assets/openattention.jpg" width="960" height="593" alt="OpenAttention overview: query-geometry clustering, ErrorGate, top-k selection and count-aware cluster proxies" loading="lazy">
+      </a>
+      <div>
+        <p class="venue">arXiv 2026</p>
+        <h4><a href="https://arxiv.org/abs/2610.30951" target="_blank" rel="noopener">OpenAttention: One Percent Is Enough with Tail Proxies</a></h4>
+        <p class="authors">
+          <a href="https://hyunwoo137.github.io/" target="_blank" rel="noopener">Hyunwoo Yu</a>,
+          <span class="me">Jongbeom Lee</span>,
+          <span>Hyunbin Kim</span>, <span>Sungjun Park</span>,
+          <a href="https://imin-jaemin.github.io/" target="_blank" rel="noopener">Jaemin Choi</a>,
+          <a href="https://nobody-96.github.io/" target="_blank" rel="noopener">Jincheol Yang</a>,
+          <span>Seunghun Moon</span>, <span>Bongjoon Hyun</span>, <span>Kyomin Sohn</span>,
+          <a href="https://www.pnu-cvsp.com/prof" target="_blank" rel="noopener">Kyeongbo Kong</a>,
+          <a href="https://vds.sogang.ac.kr/?p=87" target="_blank" rel="noopener">Suk-Ju Kang</a>
+        </p>
+        <p class="tldr">Sparse attention that folds the unread tail of the KV cache into a few count-aware cluster proxies, with an ErrorGate that spends the exact-read budget on the clusters with the largest estimated error. Keeps 99% of dense accuracy at a 1% read on RULER-32K HARD with Llama-3.1-8B, and its kernel runs decode attention 10× faster than dense at a 1% read.</p>
+        <div class="plinks">
+          <a href="https://arxiv.org/abs/2610.30951" target="_blank" rel="noopener">arXiv</a>
+          <a href="https://hyunwoo137.github.io/OpenAttention/" target="_blank" rel="noopener">Project Page</a>
+          <a href="https://github.com/hyunwoo137/OpenAttention" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
     <article class="pub">
       <a class="pub-thumb" href="https://jigsaw0612.github.io/SparSTAR_project_page/" aria-label="SparSTAR project page">
         <img src="assets/sparstar.jpg" width="960" height="593" alt="SparSTAR overview: attention masks reused across clips versus SparSTAR's per-clip dynamic mask" loading="lazy">
